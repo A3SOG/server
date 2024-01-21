@@ -1,0 +1,14 @@
+name = "SOG Server"
+prefix = "sog_server"
+author = "SOG"
+mainprefix = "z"
+
+[files]
+include = [
+    "mod.cpp",
+    "sog_server_version.json",
+    "*.paa"
+]
+
+[version]
+git_hash = 0 # Disabled
