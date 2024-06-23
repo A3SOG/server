@@ -89,8 +89,7 @@ addMissionEventHandler ["HandleDisconnect", {
 	_data pushBack ["LoadedMagazines", _loadedMags];
 
 	_key = _uid;
-	[_key, str _data] remoteExec ["db_fnc_save", 2, false];
+	// [_key, str _data] remoteExec ["db_fnc_save", 2, false];
+	// Change Extension to allow UID to be passed from game
 	deleteVehicle (_this select 0);
-
-	profileNamespace setVariable ["Rounds_Fired", rounds_fired];
 }];
