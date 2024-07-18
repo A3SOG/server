@@ -1,5 +1,8 @@
 #include "script_component.hpp"
 
+value_serverDone = false;
+publicVariable "value_serverDone";
+
 diag_log "Executing SOG Server Side Functions...";
 
 // Players
@@ -14,6 +17,6 @@ true spawn {
 	if (((configFile >> "CfgPatches" >> "sog_server_main" >> "serverSaveLoop") call BIS_fnc_getCfgData) == 0) exitWith { diag_log "Server Save Disabled"; };
 	while { true } do {
 		sleep ((configFile >> "CfgPatches" >> "sog_server_main" >> "serverSaveLoopTime") call BIS_fnc_getCfgData);
-		["save"] spawn sog_server_init_fnc_handleServerState;
+		["save"] call sog_server_init_fnc_handleServerState;
 	};
 };

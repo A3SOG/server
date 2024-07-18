@@ -1,4 +1,6 @@
 // _this spawn db_fnc_listadd;
-params [["_key", "", [""]], ["_data", "", [[], "", 0, true]]];
+// _this call dragonfly_db_fnc_listAdd;
 
-[_key, _data] call dragonfly_db_fnc_listAdd;
+params [["_key", "", [""]], ["_data", [], [[]]]];
+
+["listadd", _key, "", -1, _data, "", "null", true] call dragonfly_db_fnc_addTask;

@@ -1,26 +1,40 @@
 _data = _this;
 
-if (count _data == 0) exitwith {
+if (_data isEqualTo [""]) then {
     companyGenerals = (configFile >> "CfgPatches" >> "sog_server_main" >> "companyGenerals") call BIS_fnc_getCfgData;
     publicVariable "companyGenerals";
 
     companyFunds = "OP_BUDGET" call BIS_fnc_getParamValue;
-    companyRating = "OP_RATING" call BIS_fnc_getParamValue;
-
-    // companyFunds = getNumber (missionConfigFile >> "Params" >> "OP_BUDGET" >> "default");
     publicVariable "companyFunds";
+
+    companyRating = "OP_RATING" call BIS_fnc_getParamValue;
     publicVariable "companyRating";
+
+    companyArsenalUnlocks = [[],[],[],[]];
+    publicVariable "companyArsenalUnlocks";
+
+    companyGarageUnlocks = [[],[],[],[],[],[]];
+    publicVariable "companyGarageUnlocks";
     
-    diag_log "No Server Entry Found!"
-};
+    diag_log "No Server Entry Found!";
+    ["save"] call sog_server_init_fnc_handleServerState;
+    value_serverDone = true;
+} else {
+    for "_i" from 0 to (count _data - 1) step 2 do {
+        _key = _data select _i;
+        _value = _data select (_i + 1);
 
-{
-    _name = _x select 0;
-    _value = _x select 1;
+        if (_value isEqualType []) then {
+            _value = _value select 0;
+        };
 
-    switch (_name) do {
-        case "companyFunds": { companyFunds = _value; publicVariable "companyFunds" };
-        case "companyRating": { companyRating = _value; publicVariable "companyRating" };
-        case "companyGenerals": { companyGenerals = _value; publicVariable "companyGenerals" };
+        switch (_key) do {
+            case "funds": { companyFunds = _value; publicVariable "companyFunds" };
+            case "rating": { companyRating = _value; publicVariable "companyRating" };
+            case "operations": { companyGenerals = _value; publicVariable "companyGenerals" };
+            case "armory_unlocks": { companyArsenalUnlocks = _value; publicVariable "companyArsenalUnlocks" };
+            case "garage_unlocks": { companyGarageUnlocks = _value; publicVariable "companyGarageUnlocks" };
+        };
     };
-} forEach _data;
+    value_serverDone = true;
+};

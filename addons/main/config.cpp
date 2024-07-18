@@ -12,7 +12,7 @@ class CfgPatches {
         author = "SOG"; // primary author name, either yours or your team's, considered for the whole mod
         VERSION_CONFIG;
 
-        serverSaveLoop = 1;
+        serverSaveLoop = 0;
         serverSaveLoopTime = 30;
         companyGenerals[] = {"76561198027566824"};
         AISkill = 0.8;

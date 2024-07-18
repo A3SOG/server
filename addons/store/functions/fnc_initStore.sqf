@@ -12,6 +12,7 @@ _stores = "true" configClasses (missionConfigFile >> "SOG_CfgStores" >> "stores"
 	_storeCategories = (missionConfigFile >> _mC >> "stores" >> _configName >> "storeCategories") call BIS_fnc_getCfgData;
 	_storeRestrictedCategories = (missionConfigFile >> _mC >> "stores" >> _configName >> "storeRestrictedCategories") call BIS_fnc_getCfgData;
 	_storeModset = (missionConfigFile >> _mC >> "stores" >> _configName >> "storeModset") call BIS_fnc_getCfgData;
+	_storePaymentMethods = (missionConfigFile >> _mC >> "stores" >> _configName >> "storePaymentMethods") call BIS_fnc_getCfgData;
 	_storeName = (missionConfigFile >> _mC >> "stores" >> _configName >> "storeName") call BIS_fnc_getCfgData;
 	_storeBackpacks = (missionConfigFile >> _mC >> "stores" >> _configName >> "storeBackpacks") call BIS_fnc_getCfgData;
 	_storeGoggles = (missionConfigFile >> _mC >> "stores" >> _configName >> "storeGoggles") call BIS_fnc_getCfgData;
@@ -37,5 +38,5 @@ _stores = "true" configClasses (missionConfigFile >> "SOG_CfgStores" >> "stores"
 
 	diag_log format ["ClassName: %1 Pos: %2 Dir: %3 StoreName: %4", _className, _pos, _dir, _storeName];
 	
-	_store setVariable ["isStore", [_storeCategories, _storeModset, _storeName, _storeBackpacks, _storeGoggles, _storeHeadgear, _storeItems, _storeMagazines, _storeUniforms, _storeVests, _storeWeapons, _storeAircraft, _storeArmored, _storeChopper, _storeMarine, _storeStatic, _storeUAV, _storeUGV, _storeWheeled, _storeRestrictedCategories], true];
+	_store setVariable ["isStore", [_storeCategories, _storeModset, _storePaymentMethods, _storeName, _storeBackpacks, _storeGoggles, _storeHeadgear, _storeItems, _storeMagazines, _storeUniforms, _storeVests, _storeWeapons, _storeAircraft, _storeArmored, _storeChopper, _storeMarine, _storeStatic, _storeUAV, _storeUGV, _storeWheeled, _storeRestrictedCategories], true];
 } forEach _stores;

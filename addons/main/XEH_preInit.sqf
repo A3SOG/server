@@ -7,7 +7,7 @@ PREP_RECOMPILE_END;
 
 ADDON = true;
 
-GVARMAIN(debugMode) = true;
+GVARMAIN(debugMode) = false;
 
 // Log events
 [QGVAR(log), {

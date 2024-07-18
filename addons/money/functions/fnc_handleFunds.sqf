@@ -12,3 +12,5 @@ switch (_condition) do {
 };
 
 publicVariable "companyFunds";
+
+["hsetid", "CompanyState", "funds", -1, [companyFunds], "", "null", false] call dragonfly_db_fnc_addTask;
