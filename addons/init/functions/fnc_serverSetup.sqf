@@ -6,8 +6,8 @@ publicVariable "value_serverDone";
 diag_log "Executing SOG Server Side Functions...";
 
 // Players
-[] call sog_server_save_fnc_handleDisconnect;
-diag_log "Server Handle Disconnect Initialized.";
+// [] call sog_server_save_fnc_handleDisconnect;
+// diag_log "Server Handle Disconnect Initialized.";
 
 // Server
 ["load"] call sog_server_init_fnc_handleServerState;

@@ -18,6 +18,7 @@ if (_data isEqualTo [""]) then {
     
     diag_log "No Server Entry Found!";
     ["save"] call sog_server_init_fnc_handleServerState;
+
     value_serverDone = true;
     publicVariable "value_serverDone";
 } else {

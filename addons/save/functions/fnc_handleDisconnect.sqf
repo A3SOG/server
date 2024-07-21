@@ -46,10 +46,9 @@ addMissionEventHandler ["HandleDisconnect", {
 		_data pushBack [stance player];
 	};
 
-	deleteVehicle (_this select 0);
-
 	// ["hsetidbulk", "", "", -1, _data, "", "null", false] call dragonfly_db_fnc_addTask;
 	["hsetidbulk", "", "", -1, _data, "", "null", false] remoteExecCall ["dragonfly_db_fnc_addTask", 2, false];
 
+	deleteVehicle (_this select 0);
 	_data
 }];
